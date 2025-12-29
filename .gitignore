@@ -1,6 +1,7 @@
-bin/
-obj/
 .vs/
-*.user
+v17/
+obj/
+bin/
 *.suo
-*.cache
+*.vsidx
+*.user
