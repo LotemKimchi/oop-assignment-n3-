@@ -6,81 +6,87 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    class Vehicle
+    public class Vehicle
     {
-        private string m_ModelName;
-        private string m_LicenseNumber;
-
-        //if we dont use IEnergySource i will put this
-        //private float m_RemainingEnergy;
-        private eVehicleStatus m_VehicleStatus;
-        public List<Wheel> m_Wheels;
+        private readonly string m_LicenseNumber;
+        private readonly string m_ModelName;
+        //just in garge vehicle info?
+        //private eVehicleStatus m_VehicleStatus;
+        public readonly List<Wheel> m_Wheels;
         private EnergySource m_EnergySource;
-
-        //לפי הסרטון של גיא - לא כדאי לאתחל הכל, אלא רק ליצור אובייקט של כלי רכב ולאט לאט לאתחר את הנתונים
-        //בהתאם לבקשות מהמשתמש. לכן צריך לשנות את כל הקונסטרקטורים
-        public Vehicle(string i_ModelName,string i_LicenseNumber,EnergySource i_EnergySource, List<Wheel> i_Wheels)
-        {
-            //m_ModelName = i_ModelName;
-            //m_LicenseNumber = i_LicenseNumber;
-            //m_EnergySource = i_EnergySource;
-            //m_Wheels = i_Wheels;
-            //m_VehicleStatus = eVehicleStatus.InRepair;
-
-        }
-
+       
         public string ModelName
         {
             get { return m_ModelName; }
-            set { m_ModelName = value; }
         }
-
-        //public string GetModelName()
-        //{
-        //    return m_ModelName;
-        //}
 
         public string LicenseNumber
         {
             get { return m_LicenseNumber; }
-            set { m_LicenseNumber = value; }
         }
-        //public string GetLicenseNumber()
+        
+        //public eVehicleStatus VehicleStatus
         //{
-        //    return m_LicenseNumber;
+        //    get { return m_VehicleStatus; }
+        //    set { m_VehicleStatus = value; }
         //}
-
-        public eVehicleStatus VehicleStatus
+        
+        public EnergySource EnergySource
         {
-            get { return m_VehicleStatus; }
-            set { m_VehicleStatus = value; }
+            get { return m_EnergySource; }
+            set { m_EnergySource = value; }
         }
 
-        //public eVehicleStatus GeteVehicleStatus()
-        //{
-        //    return m_VehicleStatus;
-        //}
-
-        public void SetVehicleStatus(eVehicleStatus vehicleStatusVal)
+        public float RemainingEnergyPercentage
         {
-            m_VehicleStatus = vehicleStatusVal;
+            get
+            {
+                float percentage = 0f;
+                if (m_EnergySource != null && m_EnergySource.MaxEnergy > 0)
+                {
+                    percentage = (m_EnergySource.MaxEnergy / m_EnergySource.MaxEnergy) * 100f;
+                }
+
+                return percentage;
+            }
         }
 
-        public EnergySource GetEnergySource()
+        public List<Wheel> Wheels
         {
-            return (EnergySource)m_EnergySource;
+            get { return m_Wheels; }
         }
 
-        public List<Wheel> GetWheels()
+        public Vehicle(string i_LicenseNumber, string i_ModelName)
         {
-            return m_Wheels;
+            m_LicenseNumber = i_LicenseNumber;
+            m_ModelName = i_ModelName;
+            m_Wheels = new List<Wheel>();
+            //m_VehicleStatus = eVehicleStatus.InRepair;
+
         }
 
-        public void AddAirToWheel(float i_AirPressure)
+        public void InitializeWheels(string i_ManufacturerName, float i_CurrentAirPressure , float i_MaxAirPressure, int i_NumberOfWheels)
+        {
+            if (i_NumberOfWheels <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(i_NumberOfWheels), "Number of wheels must be positive");
+            }
+
+            m_Wheels.Clear();
+
+            for (int i = 0; i < i_NumberOfWheels; i++)
+            {
+                Wheel wheel = new Wheel(i_ManufacturerName,i_MaxAirPressure);
+                wheel.AddAirPressure(i_CurrentAirPressure);
+                m_Wheels.Add(wheel);
+            }
+        }
+
+        public void WheelsAirPressureToMax()
         {
             foreach (Wheel wheel in m_Wheels)
             {
-                wheel.AddAirPressure(i_AirPressure);
+                wheel.ChangeAirPressureToMax();
             }
         }
 
@@ -88,13 +94,9 @@ namespace Ex03.GarageLogic
         {
             string vehicleInfo = string.Format("Model: {0}\nLicense Number: {1}\nVehicle Status: {2}\n"+
                 "Wheel Status: {3}\nEnergy Source: {4}"
-                , m_ModelName, m_LicenseNumber, m_VehicleStatus, m_Wheels, m_EnergySource);
+                , m_ModelName, m_LicenseNumber, /*m_VehicleStatus,*/ m_Wheels, m_EnergySource);
 
             return vehicleInfo;
         }
-
-
-
-
     }
 }

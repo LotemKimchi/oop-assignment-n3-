@@ -11,20 +11,20 @@ namespace Ex03.GarageLogic
         protected float m_CurrentEnergy;
         protected readonly float m_MaxEnergyCapacity;
 
+        public float CurrentEnergy
+        {
+            get { return m_CurrentEnergy; }
+        }
+
+        public float MaxEnergy
+        {
+            get { return m_MaxEnergyCapacity; }
+        }
+
         public EnergySource(float i_CurrentEnergy, float i_MaxEnergy)
         {
             m_CurrentEnergy = i_CurrentEnergy;
             m_MaxEnergyCapacity = i_MaxEnergy;
-        }
-
-        public float GetCurrentEnergy()
-        {
-            return m_CurrentEnergy;
-        }
-
-        public float GetMaxEnergy()
-        {
-            return m_MaxEnergyCapacity;
         }
 
         public void AddEnergy(float i_AmountEnergy)
@@ -47,17 +47,16 @@ namespace Ex03.GarageLogic
     {
         private readonly eFuelType m_FuelType;
 
+        public eFuelType FuelType
+        {
+            get { return m_FuelType; }
+        }
+
         public FuelEnergy(float i_CurrentLiter, float i_MaxLiter, eFuelType i_FuelType): 
             base(i_CurrentLiter, i_MaxLiter)
         {
             m_FuelType = i_FuelType;
         }
-
-        public eFuelType GetFuelType()
-        {
-            return m_FuelType;
-        }
-
     }
 
     public class ElectricEnergy : EnergySource

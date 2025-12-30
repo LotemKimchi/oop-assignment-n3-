@@ -42,16 +42,23 @@
     <Compile Include="Car.cs" />
     <Compile Include="eCarColor.cs" />
     <Compile Include="eFuelType.cs" />
+    <Compile Include="ElectricCar.cs" />
+    <Compile Include="ElectricMotorcycle.cs" />
     <Compile Include="eLicenseType.cs" />
+    <Compile Include="EnergySource.cs" />
     <Compile Include="eNumOfDoors.cs" />
     <Compile Include="eVehicleStatus.cs" />
-    <Compile Include="EngineSource.cs" />
     <Compile Include="ExceptionFunctions.cs" />
+    <Compile Include="FuelCar.cs" />
+    <Compile Include="FuelMotorcycle.cs" />
+    <Compile Include="FuelTruck.cs" />
     <Compile Include="GarageManager.cs" />
+    <Compile Include="GarageVehicleInfo.cs" />
     <Compile Include="Motorcycle.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="ValueRangeException.cs" />
     <Compile Include="Vehicle.cs" />
+    <Compile Include="VehicleCreator.cs" />
     <Compile Include="Wheel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,18 +14,18 @@ namespace Ex03.GarageLogic
             m_Vehicles = new Dictionary<string,Vehicle>();
         }
 
-        public bool ContainVehciles(string i_LicenseNumber)
+        public bool ContainVehcile(string i_LicenseNumber)
         {
             return m_Vehicles.ContainsKey(i_LicenseNumber);
         }
 
-        public void AddVehicles(Vehicle i_Vehicle)
+        public void AddVehicle(Vehicle i_Vehicle)
         {
             string licenseNumber = i_Vehicle.LicenseNumber;
 
             if (m_Vehicles.ContainsKey(licenseNumber))
             {
-                throw new ArgumentException("Vehicle is alreadt exist");
+                throw new ArgumentException("Vehicle is already exist");
             }
 
             m_Vehicles.Add(licenseNumber, i_Vehicle);
@@ -40,6 +40,11 @@ namespace Ex03.GarageLogic
             }
 
             return m_Vehicles[i_LicenseNumber];
+        }
+
+        public   List<string> GetLicenseVehicles()
+        {
+            return new List<string>(m_Vehicles.Keys);
         }
     }
 }

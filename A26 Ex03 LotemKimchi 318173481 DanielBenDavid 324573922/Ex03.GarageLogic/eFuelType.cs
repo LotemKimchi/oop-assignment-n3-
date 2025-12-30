@@ -10,7 +10,7 @@ namespace Ex03.GarageLogic
     {
         Soler,
         Octan25,
-        Octan96,
+        Octan95,
         Octan98
     }
 }

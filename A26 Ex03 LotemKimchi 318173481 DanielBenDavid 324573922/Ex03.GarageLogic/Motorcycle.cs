@@ -6,29 +6,28 @@ using System.Threading.Tasks;
 
 namespace Ex03.GarageLogic
 {
-    class Motorcycle : Vehicle
+    public class Motorcycle : Vehicle
     {
-        private readonly eLicenseType m_LicenseType;
-        private readonly int m_EngineVolumeCc;
+        private eLicenseType m_LicenseType;
+        private int m_EngineVolumeCc;
 
-        public Motorcycle(string i_ModelName, string i_LicenseNumber, EnergySource i_EnergySource, List<Wheel> i_Wheels, 
-            eLicenseType i_LicenseType, int i_EngineVolumeCc) 
-            : base(i_ModelName, i_LicenseNumber, i_EnergySource, i_Wheels)
+        public eLicenseType LicenseType
         {
-            m_LicenseType = i_LicenseType;
-            m_EngineVolumeCc = i_EngineVolumeCc;
+            get { return m_LicenseType; }
+            set { m_LicenseType = value; }
         }
 
-        public eLicenseType GetLicenseType() 
+        public int EngineVolumeCc
         {
-            return m_LicenseType;
-        }
-        public int GetEngineVolumeCc()
-        {
-            return m_EngineVolumeCc;
+            get { return m_EngineVolumeCc; }
+            set { m_EngineVolumeCc = value; }
         }
 
-        //TBD
+        public Motorcycle(string i_LicenseNumber, string i_ModelName) 
+            : base(i_LicenseNumber, i_ModelName)
+        {
+        }
+
         public override string ToString()
         {
             string vehicleInfo = base.ToString();
