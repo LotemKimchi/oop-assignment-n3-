@@ -11,7 +11,7 @@ namespace Ex03.GarageLogic
         private readonly eLicenseType m_LicenseType;
         private readonly int m_EngineVolumeCc;
 
-        public Motorcycle(string i_ModelName, string i_LicenseNumber, EngineSource i_EnergySource, List<Wheel> i_Wheels, 
+        public Motorcycle(string i_ModelName, string i_LicenseNumber, EnergySource i_EnergySource, List<Wheel> i_Wheels, 
             eLicenseType i_LicenseType, int i_EngineVolumeCc) 
             : base(i_ModelName, i_LicenseNumber, i_EnergySource, i_Wheels)
         {

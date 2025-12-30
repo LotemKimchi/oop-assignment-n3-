@@ -12,7 +12,7 @@ namespace Ex03.GarageLogic
         private readonly eCarColor m_CarColor;
         private readonly eNumOfDoors m_NumOfDoors;
 
-        public Car(string i_ModelName, string i_LicenseNumber, EngineSource i_EnergySource, List<Wheel> i_Wheels,
+        public Car(string i_ModelName, string i_LicenseNumber, EnergySource i_EnergySource, List<Wheel> i_Wheels,
             eCarColor i_CarColor, eNumOfDoors i_NumOfDoors): 
             base(i_ModelName, i_LicenseNumber, i_EnergySource, i_Wheels)
         {

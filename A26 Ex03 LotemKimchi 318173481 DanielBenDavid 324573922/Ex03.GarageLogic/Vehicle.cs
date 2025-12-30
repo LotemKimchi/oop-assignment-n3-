@@ -15,11 +15,11 @@ namespace Ex03.GarageLogic
         //private float m_RemainingEnergy;
         private eVehicleStatus m_VehicleStatus;
         public List<Wheel> m_Wheels;
-        private EngineSource m_EnergySource;
+        private EnergySource m_EnergySource;
 
         //לפי הסרטון של גיא - לא כדאי לאתחל הכל, אלא רק ליצור אובייקט של כלי רכב ולאט לאט לאתחר את הנתונים
         //בהתאם לבקשות מהמשתמש. לכן צריך לשנות את כל הקונסטרקטורים
-        public Vehicle(string i_ModelName,string i_LicenseNumber,EngineSource i_EnergySource, List<Wheel> i_Wheels)
+        public Vehicle(string i_ModelName,string i_LicenseNumber,EnergySource i_EnergySource, List<Wheel> i_Wheels)
         {
             //m_ModelName = i_ModelName;
             //m_LicenseNumber = i_LicenseNumber;
@@ -66,9 +66,9 @@ namespace Ex03.GarageLogic
             m_VehicleStatus = vehicleStatusVal;
         }
 
-        public EngineSource GetEnergySource()
+        public EnergySource GetEnergySource()
         {
-            return (EngineSource)m_EnergySource;
+            return (EnergySource)m_EnergySource;
         }
 
         public List<Wheel> GetWheels()
