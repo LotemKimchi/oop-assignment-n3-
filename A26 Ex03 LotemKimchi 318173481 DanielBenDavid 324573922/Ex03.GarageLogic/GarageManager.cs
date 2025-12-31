@@ -9,10 +9,10 @@ namespace Ex03.GarageLogic
 {
     public class GarageManager
     {
-        private Dictionary<string,Vehicle> m_Vehicles;
+        private Dictionary<string, GarageVehicleInfo> m_Vehicles;
         public GarageManager() 
         {
-            m_Vehicles = new Dictionary<string,Vehicle>();
+            m_Vehicles = new Dictionary<string, GarageVehicleInfo>();
         }
 
         public bool ContainVehcile(string i_LicenseNumber)
@@ -20,7 +20,7 @@ namespace Ex03.GarageLogic
             return m_Vehicles.ContainsKey(i_LicenseNumber);
         }
 
-        public void AddVehicle(Vehicle i_Vehicle)
+        public void AddVehicle(Vehicle i_Vehicle, string i_OwnerName, string i_OwnerPhone)
         {
             string licenseNumber = i_Vehicle.LicenseNumber;
 
@@ -29,11 +29,13 @@ namespace Ex03.GarageLogic
                 throw new ArgumentException("Vehicle is already exist");
             }
 
-            m_Vehicles.Add(licenseNumber, i_Vehicle);
+            GarageVehicleInfo garageVehicleInfo = new GarageVehicleInfo(i_Vehicle, i_OwnerName, i_OwnerPhone);
+
+            m_Vehicles.Add(licenseNumber, garageVehicleInfo);
         }
         
-
-        public Vehicle GetVehicle(string i_LicenseNumber)
+        
+        public GarageVehicleInfo GetVehicleInfo(string i_LicenseNumber)
         {
             if (!m_Vehicles.ContainsKey(i_LicenseNumber))
             {
