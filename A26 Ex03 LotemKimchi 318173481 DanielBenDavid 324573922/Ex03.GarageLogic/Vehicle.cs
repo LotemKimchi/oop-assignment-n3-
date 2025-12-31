@@ -14,7 +14,7 @@ namespace Ex03.GarageLogic
         //private eVehicleStatus m_VehicleStatus;
         public readonly List<Wheel> m_Wheels;
         private EnergySource m_EnergySource;
-       
+
         public string ModelName
         {
             get { return m_ModelName; }
@@ -24,13 +24,13 @@ namespace Ex03.GarageLogic
         {
             get { return m_LicenseNumber; }
         }
-        
+
         //public eVehicleStatus VehicleStatus
         //{
         //    get { return m_VehicleStatus; }
         //    set { m_VehicleStatus = value; }
         //}
-        
+
         public EnergySource EnergySource
         {
             get { return m_EnergySource; }
@@ -65,7 +65,7 @@ namespace Ex03.GarageLogic
 
         }
 
-        public void InitializeWheels(string i_ManufacturerName, float i_CurrentAirPressure , float i_MaxAirPressure, int i_NumberOfWheels)
+        public void InitializeWheels(string i_ManufacturerName, float i_CurrentAirPressure, float i_MaxAirPressure, int i_NumberOfWheels)
         {
             if (i_NumberOfWheels <= 0)
             {
@@ -76,7 +76,7 @@ namespace Ex03.GarageLogic
 
             for (int i = 0; i < i_NumberOfWheels; i++)
             {
-                Wheel wheel = new Wheel(i_ManufacturerName,i_MaxAirPressure);
+                Wheel wheel = new Wheel(i_ManufacturerName, i_MaxAirPressure);
                 wheel.AddAirPressure(i_CurrentAirPressure);
                 m_Wheels.Add(wheel);
             }
@@ -92,7 +92,7 @@ namespace Ex03.GarageLogic
 
         public override string ToString()
         {
-            string vehicleInfo = string.Format("Model: {0}\nLicense Number: {1}\nVehicle Status: {2}\n"+
+            string vehicleInfo = string.Format("Model: {0}\nLicense Number: {1}\nVehicle Status: {2}\n" +
                 "Wheel Status: {3}\nEnergy Source: {4}"
                 , m_ModelName, m_LicenseNumber, /*m_VehicleStatus,*/ m_Wheels, m_EnergySource);
 

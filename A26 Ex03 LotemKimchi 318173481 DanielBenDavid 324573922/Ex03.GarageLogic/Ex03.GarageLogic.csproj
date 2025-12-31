@@ -48,7 +48,6 @@
     <Compile Include="EnergySource.cs" />
     <Compile Include="eNumOfDoors.cs" />
     <Compile Include="eVehicleStatus.cs" />
-    <Compile Include="ExceptionFunctions.cs" />
     <Compile Include="FuelCar.cs" />
     <Compile Include="FuelMotorcycle.cs" />
     <Compile Include="FuelTruck.cs" />

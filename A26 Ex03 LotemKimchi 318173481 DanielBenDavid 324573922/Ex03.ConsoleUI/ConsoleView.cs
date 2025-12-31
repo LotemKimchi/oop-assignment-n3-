@@ -95,17 +95,17 @@ namespace Ex03.ConsoleUI
 
         }
 
-        private void loadVehiclesFromFile()
+        public void loadVehiclesFromFile()
         {
 
         }
 
-        private void insertVewVehicle()
+        public void insertVewVehicle()
         {
 
         }
 
-        private void showLicenseNumbers()
+        public void showLicenseNumbers()
         {
 
         }
